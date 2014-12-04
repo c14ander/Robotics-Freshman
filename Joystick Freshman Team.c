@@ -13,5 +13,17 @@ task main()
 		getJoystickSettings(joystick);
 		motor[motorA] = joystick.joy1_y2; //Main drive motor
 		motor[motorB] = -joystick.joy1_y1; //Main drive motor reversed
+		if(abs(joystick.joy1_y2)>5){
+			motor[motorA] = joystick.joy1_y2;
+		}
+		else{
+			motor[motorA] = 0;
+		}
+		if(abs(joystick.joy1_y1)>5){
+			motor[motorB] = -joystick.joy1_y1;
+		}
+		else{
+			motor[motorA] = 0;
+		}
 	}
 }
